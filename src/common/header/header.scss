@@ -1,0 +1,120 @@
+@import '../../styles/common';
+@import '../../styles/container';
+@import '../../styles/theme';
+@import '../../styles/typography';
+
+.header {
+    background-color: var(--theme-light-background);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        a {
+            display: flex;
+            align-items: center;
+            font-family: 'Gilroy-Bold', sans-serif;
+            font-size: 24px;
+            color: var(--theme-dark-text);
+
+            .header__logo-icon {
+                font-size: 28px;
+                margin-right: 8px;
+                color: #61DAFB; // React logo color
+            }
+        }
+    }
+
+    &__nav {
+        ul {
+            display: flex;
+            list-style-type: none;
+
+            li {
+                margin-left: 20px;
+
+                a {
+                    font-family: 'Gilroy-Medium', sans-serif;
+                    font-size: 16px;
+                    color: var(--theme-dark-text);
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #61DAFB; // React logo color
+                    }
+                }
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+    }
+
+    &__action-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: var(--theme-dark-text);
+        margin-left: 15px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #61DAFB; // React logo color
+        }
+    }
+
+    &__menu-toggle {
+        display: none;
+        font-size: 24px;
+        color: var(--theme-dark-text);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        &__nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--theme-light-background);
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+
+            &--open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            ul {
+                flex-direction: column;
+
+                li {
+                    margin: 10px 0;
+                }
+            }
+        }
+
+        &__menu-toggle {
+            display: block;
+        }
+
+        &__actions {
+            margin-right: 15px;
+        }
+    }
+}
