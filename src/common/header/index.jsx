@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaShoppingCart, FaUser, FaBars, FaTimes } from 'react-icons/fa';
+import { FaShoppingCart, FaUser, FaBars, FaTimes, FaHeart } from 'react-icons/fa';
 import { RiReactjsLine } from 'react-icons/ri';
 import './header.scss';
 
@@ -34,12 +34,15 @@ const Header = () => {
                             <FaShoppingCart />
                         </button>
                         <button className="header__action-btn">
+                            <FaHeart />
+                        </button>
+                        <button className="header__action-btn">
                             <FaUser />
                         </button>
+                        <button className="header__menu-toggle" onClick={toggleMenu}>
+                            {isMenuOpen ? <FaTimes /> : <FaBars />}
+                        </button>
                     </div>
-                    <button className="header__menu-toggle" onClick={toggleMenu}>
-                        {isMenuOpen ? <FaTimes /> : <FaBars />}
-                    </button>
                 </div>
             </div>
         </header>

@@ -25,7 +25,7 @@
             .header__logo-icon {
                 font-size: 28px;
                 margin-right: 8px;
-                color: #61DAFB; // React logo color
+                color: var(--theme-primary-background); // React logo color
             }
         }
     }
@@ -45,7 +45,7 @@
                     transition: color 0.3s ease;
 
                     &:hover {
-                        color: #61DAFB; // React logo color
+                        color: var(--theme-primary-text);
                     }
                 }
             }
@@ -55,6 +55,7 @@
     &__actions {
         display: flex;
         align-items: center;
+        gap: 10px;
     }
 
     &__action-btn {
@@ -62,12 +63,11 @@
         border: none;
         font-size: 20px;
         color: var(--theme-dark-text);
-        margin-left: 15px;
         cursor: pointer;
         transition: color 0.3s ease;
 
         &:hover {
-            color: #61DAFB; // React logo color
+            color: var(--theme-primary-text);
         }
     }
 
@@ -111,10 +111,6 @@
 
         &__menu-toggle {
             display: block;
-        }
-
-        &__actions {
-            margin-right: 15px;
         }
     }
 }
