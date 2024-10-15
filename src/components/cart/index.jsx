@@ -2,8 +2,15 @@ import React from 'react';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { fakeData } from '../../fakeapi/api';
 import './cart.scss';
+import { useDispatch } from 'react-redux';
 
 const Cart = () => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <div className="cart-container">
     <div className="heading">
@@ -22,7 +29,7 @@ const Cart = () => {
               <button className="cart-item-button wishlist">
                 <FaHeart />
               </button>
-              <button className="cart-item-button add-to-cart">
+              <button onClick={() => handleAddToCart(product)} className="cart-item-button add-to-cart">
                 <FaShoppingCart />
               </button>
             </div>
