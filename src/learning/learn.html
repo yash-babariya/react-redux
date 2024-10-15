@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles/main.scss">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="main-content__header">
+                <h1>Props Drilling</h1>
+                <p>Passing props through multiple levels of components</p>
+            </div>
+            <div class="main-content__content">
+                <div class="img">
+                    <img src="./image/prop-drilling.webp" alt="Props Drilling">
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="main-content__header">
+                <h1>With Redux or Without Redux</h1>
+                <p>Single source of truth</p>
+            </div>
+            <div class="main-content__content">
+                <div class="main-content__content">
+                    <div class="img">
+                        <img src="./image/redux with or not.png" alt="With Redux">
+                    </div>
+                    <div class="img">
+                        <img src="./image/redux-with-or-nor.png" alt="With Redux">
+                    </div>
+                    <div class="img">
+                        <img src="./image/redux.webp" alt="With Redux">
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="main-content__header">
+                    <h1>React Redux Toolkit</h1>
+                    <p>Redux lifecycle</p>
+                </div>
+                <div class="main-content__content">
+                    <div class="img">
+                        <img src="./image/react-redux.png" alt="Redux Toolkit">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="main-content__header">
+                <h1>Redux Counter Example</h1>
+                <p>Simple counter implementation using Redux</p>
+            </div>
+            <div class="main-content__content">
+                <div class="img">
+                    <img src="./image/redux-data-flow.png" alt="Redux Counter Diagram">
+                </div>
+                <div class="counter-example">
+                    <p>Count: <span id="count">0</span></p>
+                    <button id="increment">Increment</button>
+                    <button id="addToCart" class="add-to-cart-btn">
+                        <span class="material-icons">shopping_cart</span>
+                        Add to Cart
+                        <span id="cartCount" class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"></script>
+    <script>
+        // Redux setup
+        const initialState = { count: 0, cartCount: 0 };
+        const reducer = (state = initialState, action) => {
+            switch (action.type) {
+                case 'INCREMENT':
+                    return { ...state, count: state.count + 1 };
+                case 'ADD_TO_CART':
+                    return { ...state, cartCount: state.cartCount + 1 };
+                default:
+                    return state;
+            }
+        };
+        const store = Redux.createStore(reducer);
+
+        // DOM elements
+        const countDisplay = document.getElementById('count');
+        const incrementButton = document.getElementById('increment');
+        const addToCartButton = document.getElementById('addToCart');
+        const cartCountDisplay = document.getElementById('cartCount');
+
+        // Update UI
+        const updateUI = () => {
+            const state = store.getState();
+            countDisplay.textContent = state.count;
+            cartCountDisplay.textContent = state.cartCount;
+        };
+
+        // Subscribe to store changes
+        store.subscribe(updateUI);
+
+        // Button click handlers
+        incrementButton.addEventListener('click', () => {
+            store.dispatch({ type: 'INCREMENT' });
+        });
+
+        addToCartButton.addEventListener('click', () => {
+            store.dispatch({ type: 'ADD_TO_CART' });
+        });
+
+        // Initial UI update
+        updateUI();
+    </script>
+</body>
+
+</html>

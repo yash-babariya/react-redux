@@ -1,0 +1,154 @@
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: url('../assets/fonts/Gilroy-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url('../assets/fonts/Gilroy-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: url('../assets/fonts/Gilroy-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Heavy';
+    src: url('../assets/fonts/Gilroy-Heavy.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Light';
+    src: url('../assets/fonts/Gilroy-Light.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
+    font-family: 'Gilroy-Regular';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-family: 'Gilroy-Bold';
+}
+
+h2 {
+    font-family: 'Gilroy-Medium';
+}
+
+h3 {
+    font-family: 'Gilroy-Light';
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.main-content__header {
+    padding: 40px 0;
+}
+
+.main-content__header h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.main-content__header p {
+    font-size: 20px;
+    text-align: center;
+}
+
+.main-content__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    padding: 20px 0;
+    width: 70vh;
+    height: auto;
+    overflow: hidden;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.counter-example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-example p {
+    font-size: 20px;
+    text-align: center;
+}
+
+.counter-example button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 1px solid #fff;
+}
+
+.add-to-cart-btn .material-icons {
+    margin-right: 8px;
+}
+
+.cart-count {
+    margin-left: 8px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #fff;
+}
