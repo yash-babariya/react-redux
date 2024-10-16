@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { FaShoppingCart, FaUser, FaBars, FaTimes, FaHeart } from 'react-icons/fa';
 import { RiReactjsLine } from 'react-icons/ri';
 import './header.scss';
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const itemCount = useSelector((state) => state.cart.itemCount);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -30,9 +33,10 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className="header__actions">
-                        <button className="header__action-btn">
+                        <NavLink to="/cart" className="header__action-btn shopping">
                             <FaShoppingCart />
-                        </button>
+                            <span className="header__action-btn-count">{itemCount}</span>
+                        </NavLink>
                         <button className="header__action-btn">
                             <FaHeart />
                         </button>

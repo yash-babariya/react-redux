@@ -1,27 +1,20 @@
 import React from 'react';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
-import { fakeData } from '../../fakeapi/api';
 import './cart.scss';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/cart/cart';
-import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
-const Cart = () => {
-  const dispatch = useDispatch();
+const AddToCart = () => {
 
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-    toast.success('Product added to cart');
-  };
+    const cartItems = useSelector((state) => state.cart.items);
 
   return (
     <div className="cart-container">
     <div className="heading">
-        <h1>Cart</h1>
+        <h1>Your Cart</h1>
     </div>      
       <div className="container">
         <div className="cart-grid">
-        {fakeData.map((product) => (
+        {cartItems.map((product) => (
           <div key={product.id} className="cart-item">
             <img src={product.image} alt={product.name} className="cart-item-image" />
             <div className="cart-item-details">
@@ -44,5 +37,5 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default AddToCart;
 
