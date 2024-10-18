@@ -2,16 +2,22 @@ import React from 'react';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { fakeData } from '../../fakeapi/api';
 import './cart.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cart/cart';
 import { toast } from 'react-toastify';
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-    toast.success('Product added to cart');
+    const isProductInCart = cartItems.some((item) => item.id === product.id);
+    if (isProductInCart) {
+      toast.error('Product already in cart', { position: toast.P});
+    } else {
+      dispatch(addToCart(product));
+      toast.success('Product added to cart', { position: toast.POSITION.CENTER });
+    }
   };
 
   return (
